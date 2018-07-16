@@ -8,11 +8,11 @@ const cors = require('cors');
 const app = express();
 const server = require('http').Server(app);
 
-const ExpressPeerServer = require('peer').ExpressPeerServer;
-const options = {
-  debug: true
-}
-const peerserver = ExpressPeerServer(server, options);
+// const ExpressPeerServer = require('peer').ExpressPeerServer;
+// const options = {
+//   debug: true
+// }
+// const peerserver = ExpressPeerServer(server, options);
 
 app.set('view engine', 'ejs');
 app.set('views','./dist');
@@ -28,8 +28,8 @@ app.get("/", (req, res) => {
   res.render('index');
 })
 
-app.use('/api/v1/', peerserver);
-peerserver.on('connection', id => {});
+// app.use('/api/v1/', peerserver);
+// peerserver.on('connection', id => {});
 
 server.listen(port, () => console.log('Server is running on port ' + port));
 
